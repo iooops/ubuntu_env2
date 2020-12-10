@@ -11,8 +11,8 @@ RUN apt-get install -y --no-install-recommends python3-pip
 # RUN pip3 install spleeter Flask --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple
 RUN pip3 install Flask gunicorn gevent --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple
 
-WORKDIR /app
-COPY . /app
+WORKDIR /usr/src/app
+COPY . .
 EXPOSE 9000
 # EXPOSE 5000
 CMD ["gunicorn", "app:app", "-c", "./gunicorn.conf.py"]
